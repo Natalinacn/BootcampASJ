@@ -1,0 +1,167 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+body{
+    min-height: 100vh;
+}
+
+
+#navbar{
+color: black;
+display: flex;
+justify-content: space-around;
+margin: 20px;
+
+
+}
+
+.items_nav ul{
+
+    list-style: none;
+    display: flex;
+
+
+}
+
+.items_nav li{
+
+    margin: 10px;
+
+}
+
+
+.items_nav li a{
+
+    text-decoration: none;
+    color: black;
+
+}
+
+
+
+
+.items_nav a h3{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.items_nav a h3:hover{
+    text-decoration: none;
+    color: aquamarine;
+}
+
+
+.items_nav a img{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.items_nav a img:hover{
+    text-decoration: none;
+    color: aquamarine;
+}
+
+
+.buscador{
+    display: flex;
+    justify-content: space-around;
+
+
+}
+
+.buscador img{
+    width: 20px;
+}
+
+.containerBuscador{
+    display: flex;
+
+}
+
+.inputSearch{
+    display: flex;
+}
+
+.inputSearch input{
+    padding: 10px;
+}
+
+.inputSearch button{
+    margin: 0;
+}
+
+.inputSearch button:hover {
+    cursor: pointer;
+
+}
+
+.select{
+    margin-left: 20px;
+}
+
+
+.select select{
+    background-color: rgb(32, 32, 32);
+    padding: 10px;
+    color: white
+}
+
+.select select option{
+    background-color: rgb(32, 32, 32);
+    padding: 5px;
+    color: white
+}
+
+
+
+.paginas{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.paginas div{
+    border: 1px solid gray;
+    padding: 5px 10px;
+    
+}
+
+.paginas div:hover {
+
+    background-color: rgb(48, 231, 215);
+}
+
+.paginas div a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+/* CARRITO */
+
+.carrito{
+    margin: 50px;
+}
+
+.carrito h2{
+    margin: 30px;
+    font-size: 1.5rem;
+}
+
+table{
+    margin: 30px;
+    font-size: 1.5rem;
+}
+
+
+tbody img{
+    width: 25px;
+}
