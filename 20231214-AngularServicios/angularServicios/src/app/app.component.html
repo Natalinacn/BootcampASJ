@@ -1,0 +1,38 @@
+<div class="padre">
+  
+  <h4>Padre</h4>
+
+  <div>
+    
+  </div>
+
+
+
+
+
+
+
+  <app-hijo     [datoEnviado]="{nombre: 'Lucas', motivoExp: 'Nunca vio los Simpsons'}"
+  otro= "Hola">
+
+  </app-hijo>
+
+  <app-hijo (mensaje)="recibirMsj($event)"></app-hijo>
+
+  <p>Mensaje del Hijo: {{ msjContenido}}</p>
+
+
+  <hr>
+
+  <!-- //Esto corresponde a la linea 18 del app.components.ts -->
+  <!-- Creo una variable con el #myInput -->
+  <input type="text" #myInput>
+  <button (click)="mostrar(myInput.value)">Mostrar</button>
+</div>
+
+  <!-- //Esto corresponde a la linea 25 del app.components.ts -->
+<div>
+  <h3>Double Data Biding</h3>
+  <input type="text" [(ngModel)]="dato">
+  <h4>{{ dato }}</h4>
+</div>

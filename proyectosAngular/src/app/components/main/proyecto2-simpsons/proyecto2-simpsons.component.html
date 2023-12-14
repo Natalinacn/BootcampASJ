@@ -1,0 +1,55 @@
+<div class="mt-5">
+  <h2>Los Simpsons</h2>
+
+  <div class="form-group">
+    <div class="form-group">
+      <label for="imagen">URL de Foto del personaje</label>
+      <input
+        type="text"
+        class="form-control"
+        id="imagen"
+        placeholder="Ingrese la URL de la imagen"
+        [(ngModel)]="inputImagen"
+      />
+    </div>
+    <label for="nombre">Nombre del Personaje</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nombre"
+      placeholder="Escriba el nombre"
+      [(ngModel)]="inputNombre"
+    />
+  </div>
+  <div class="form-group">
+    <label for="profesion">Profesión del Personaje</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nombre"
+      placeholder="Escriba la profesión del personaje"
+      [(ngModel)]="inputProfesion"
+    />
+  </div>
+  <button (click)="agregarATabla()">Agregar</button>
+</div>
+
+<div>
+<table class="table table-dark mt-5">
+    <thead>
+      <tr>
+        <th scope="col">Imagen</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Profesión</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let personaje of personajes">
+        <td><img [src]="personaje.inputImagen" alt="FotoPersonaje" id="imgTable"></td>
+        <!-- <td>{{personaje.inputImagen}}</td> -->
+        <td>{{personaje.inputNombre}}</td>
+        <td>{{personaje.inputProfesion}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
