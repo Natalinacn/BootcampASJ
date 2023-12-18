@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,12 @@ import { MainComponent } from './components/main/main.component';
 import { SidebarComponent } from './components/main/sidebar/sidebar.component';
 import { Proyecto1Component } from './components/main/proyecto1/proyecto1.component';
 import{FormsModule} from '@angular/forms';
+import { Proyecto2SimpsonsComponent } from './components/main/proyecto2-simpsons/proyecto2-simpsons.component';
+import { CharactersCardComponent } from './components/main/proyecto3RickAndMorty/characters-card/characters-card.component';
+import { CharactersListComponent } from './components/main/proyecto3RickAndMorty/characters-list/characters-list.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -18,11 +25,15 @@ import{FormsModule} from '@angular/forms';
     FooterComponent,
     MainComponent,
     SidebarComponent,
-    Proyecto1Component
+    Proyecto1Component,
+    Proyecto2SimpsonsComponent,
+    CharactersCardComponent,
+    CharactersListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NgbModule,
     FormsModule
   ],
