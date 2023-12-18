@@ -1,0 +1,27 @@
+<div class="container mt-5">
+<h1 class="text-center">Personajes de Rick And Morty</h1>
+
+<div>
+    <table  class="table table-dark mt-5">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+              <th scope="col">Imagen</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Especie</th>
+              <th scope="col">Detalle</th>
+
+            </tr>
+          </thead>
+          <tbody>
+        <tr *ngFor="let p of personajes.results">
+            <td>{{ p.id }}</td>
+            <td><img src="{{ p.image }}" alt="personaje" width="50px"></td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.species }}</td>
+            <td><button routerLink="card" class="btn btn-info">VER</button></td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+</div>
