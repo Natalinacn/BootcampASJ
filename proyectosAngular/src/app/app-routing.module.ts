@@ -5,6 +5,7 @@ import { Proyecto2SimpsonsComponent } from './components/main/proyecto2-simpsons
 import { MainComponent } from './components/main/main.component';
 import { CharactersListComponent } from './components/main/proyecto3RickAndMorty/characters-list/characters-list.component';
 import { CharactersCardComponent } from './components/main/proyecto3RickAndMorty/characters-card/characters-card.component';
+import { PipesComponent } from './components/main/pipes/pipes.component';
 
 const routes: Routes = [
 
@@ -12,6 +13,7 @@ const routes: Routes = [
 { path: 'proyecto2', component: Proyecto2SimpsonsComponent},
 { path: 'proyecto3', component: CharactersListComponent},
 { path: 'proyecto3/card', component: CharactersCardComponent},
+{ path: 'pipes', component: PipesComponent},
 // { path: '', component:MainComponent} asi seria el de default
 
 

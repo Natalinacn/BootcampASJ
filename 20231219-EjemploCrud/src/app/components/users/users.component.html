@@ -1,0 +1,68 @@
+<div class="row text-center align-middle ">
+    <div class="col-md-7">
+        <h3>Listado de usuarios</h3>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Avatar</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>...</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let u of usuarios">
+                    <td>
+                        <img src="{{u.avatar}}" alt="{{ u.first_name }}" width="100px">
+                    </td>
+                    <td>{{u.first_name}}</td>
+                    <td>{{u.last_name}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-secondary" (click)="update(u)">Modificar</button> <!-- le envio todo el objeto -->
+                        <button class="btn btn-sm btn-outline-danger" (click)="delete(u.id)">Eliminar</button></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-5 px-5">
+        <h3>Nuevo Usuario</h3>
+        <form #miForm="ngForm" (ngSubmit)="create(miForm)"> <!-- Pongo el metodo onSubmit con un método y debo aclararle que el boton es tipo submit. Le paso por parametro al create el formilario miForm entero-->
+            <input type="hidden" name="id" [(ngModel)]="userService.datosUsuario.id">
+            <div class="mb-4">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" placeholder="Nombre" name="name" [(ngModel)]="userService.datosUsuario.name"
+                required
+                minlength="4"
+                #name="ngModel"> <!-- Siempre tiene que estar el name sino no se manda el dato, se pone con el nombre que pise la api -->
+            </div>
+
+            <!-- Control de datos del form -->
+            <div *ngIf="name.errors?.['minlength']" class="col-auto">
+                <span class="form-text text-danger  ">Debe tener al menos 4 caracteres</span>
+            </div>
+            <div *ngIf="name.errors?.['required']" class="col-auto">
+                <span class="form-text text-danger  ">El dato es obligatorio</span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Trabajo</label>
+                <input type="text" class="form-control" placeholder="Trabajo" name="job" [(ngModel)]="userService.datosUsuario.job">
+            </div>
+            <button type="submit" class="btn btn-outline-success me-2 "
+            [disabled]="!miForm.valid">Guardar</button> <!-- Debo aclararle que el boton es tipo submit para que el formulario funcione-->
+            <button class="btn btn-outline-warning" (click)="resetForm(miForm)">Limpiar</button>
+
+        </form>
+        <div>
+            
+        </div>
+    </div>
+    
+    
+
+</div>
+
+
+

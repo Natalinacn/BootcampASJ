@@ -14,6 +14,8 @@ import{FormsModule} from '@angular/forms';
 import { Proyecto2SimpsonsComponent } from './components/main/proyecto2-simpsons/proyecto2-simpsons.component';
 import { CharactersCardComponent } from './components/main/proyecto3RickAndMorty/characters-card/characters-card.component';
 import { CharactersListComponent } from './components/main/proyecto3RickAndMorty/characters-list/characters-list.component';
+import { PipesComponent } from './components/main/pipes/pipes.component';
+import { PipePruebaPipe } from './pipe-prueba.pipe';
 
 
 
@@ -29,6 +31,8 @@ import { CharactersListComponent } from './components/main/proyecto3RickAndMorty
     Proyecto2SimpsonsComponent,
     CharactersCardComponent,
     CharactersListComponent,
+    PipesComponent,
+    PipePruebaPipe,
   ],
   imports: [
     BrowserModule,

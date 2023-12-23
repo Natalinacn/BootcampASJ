@@ -8,7 +8,7 @@ import { RickAndMortyService } from 'src/app/services/rick-and-morty.service';
 })
 export class CharactersCardComponent implements OnInit{
 
-  personajeId: number;
+  personajeId: number | undefined;
 
   constructor(public rickAndMortyService: RickAndMortyService) {}
 
