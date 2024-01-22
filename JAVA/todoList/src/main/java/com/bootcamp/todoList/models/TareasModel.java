@@ -1,5 +1,7 @@
 package com.bootcamp.todoList.models;
 
+import java.sql.Date;
+
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,18 +19,21 @@ public class TareasModel {
 	//@Column(unique = true, nullable = false) Le puedo poner el @Column si quiero especidicar cosas
 	private Integer id;
 	private String nombre;
-	private String descripcion;
+	private Date fecha;
 	private Boolean estado;
 	
 	public TareasModel() {
 	}
-	
-	public TareasModel(int id, String nombre, String descripcion, Boolean estado) {
+
+
+	public TareasModel(Integer id, String nombre, Date fecha, Boolean estado) {
 		this.id = id;
 		this.nombre = nombre;
-		this.descripcion = descripcion;
+		this.fecha = fecha;
 		this.estado = estado;
 	}
+
+
 	public int getId() {
 		return id;
 	}
@@ -41,24 +46,32 @@ public class TareasModel {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getDescripcion() {
-		return descripcion;
+
+
+	public Date getFecha() {
+		return fecha;
 	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
+
+
 	public Boolean getEstado() {
 		return estado;
 	}
 	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
+
+
 	@Override
 	public String toString() {
-		return "TareasModel [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", estado=" + estado
-				+ "]";
+		return "TareasModel [id=" + id + ", nombre=" + nombre + ", fecha=" + fecha + ", estado=" + estado + "]";
 	}
-	
+
+
 	
 	
 	

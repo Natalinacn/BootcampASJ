@@ -1,8 +1,11 @@
 package com.bootcamp.todoList.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +19,7 @@ import com.bootcamp.todoList.models.TareasModel;
 import com.bootcamp.todoList.services.TareasSevice;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/tarea")
 public class TareasController {
 	
@@ -31,34 +35,39 @@ public class TareasController {
 		return ResponseEntity.ok("algo");
 	}
 	
-	@GetMapping()
+	@GetMapping("/listado")
 	public ResponseEntity<List<TareasModel>> getTareas(){
 		return ResponseEntity.ok(tareasService.obtenerTareas());
 	}
 	
-	@GetMapping("/id")
-	public ResponseEntity<TareasModel> getTareaById(@PathVariable Integer id){
-		return ResponseEntity.ok(null);
+	@GetMapping("/{id}")
+	public ResponseEntity<Optional<TareasModel>> getTareaById(@PathVariable Integer id){
+		return ResponseEntity.ok(tareasService.obtenerTareaPorId(id));
 
 	}
 	
-	@PostMapping()
-	public ResponseEntity<String> createTarea(@RequestBody TareasModel tarea) {
+	@PostMapping("/crear")
+	public ResponseEntity<TareasModel> createTarea(@RequestBody TareasModel tarea) {
 		
-		return ResponseEntity.ok("Tarea creada con éxito");
+		TareasModel tareaCreada = this.tareasService.crearTarea(tarea);
+		return ResponseEntity.ok(tareaCreada);
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<String>  updateTarea(@PathVariable Integer id, @RequestBody TareasModel tarea) {
-		
-		return ResponseEntity.ok("Tarea actualizada con éxito");
+	public ResponseEntity<TareasModel> updateTarea(@PathVariable Integer id, @RequestBody TareasModel tarea) {
+		try {			
+	        TareasModel tareasActualizada = this.tareasService.actualizarTarea(id, tarea);
+	        return new ResponseEntity<>(tareasActualizada, HttpStatus.OK);
+		}catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
-	
+
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<String> deleteTarea(@PathVariable Integer id) {
-		
-		return ResponseEntity.ok("Tarea eliminada con éxito");
+	public ResponseEntity<Void> deleteTarea(@PathVariable Integer id) {
+		this.tareasService.eliminarTarea(id);
+		return new ResponseEntity<>(HttpStatus.OK);
 		
 	}
 	
