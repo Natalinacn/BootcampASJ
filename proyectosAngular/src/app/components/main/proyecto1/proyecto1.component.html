@@ -1,15 +1,26 @@
-<button (click)="setearFiltro('todas')">Todas</button>
+<!-- <button (click)="setearFiltro('todas')">Todas</button>
 <button (click)="setearFiltro('completadas')">Completadas</button>
-<button (click)="setearFiltro('incompletas')">Incompletas</button>
+<button (click)="setearFiltro('incompletas')">Incompletas</button> -->
 
 <h2>Ingrese una tarea</h2>
-<input type="text" [(ngModel)] ="valor_input" />
-<button class="btn btn-dark" (click)="agregarTarea()">Agregar</button>
+<form #form="ngForm" (ngSubmit)="agregarTarea(form)">
+  <input type="text" [(ngModel)]="tareasModel.nombre" name="nombre" required />
+  <button class="btn btn-dark" type="submit">Agregar</button>
+</form>
 
 <ul>
-    <!-- <li *ngFor="let tarea of tareas" [ngClass]="{'tachado': tarea.estado}"> -->
-        <li *ngFor="let tarea of tareasFiltradas" [ngClass]="{'tachado': tarea.estado}">
-        <input type="checkbox" [(ngModel)]="tarea.estado">
-        {{tarea.descripcion}} - {{tarea.fecha | date}}
-    </li>
+  <li *ngFor="let tarea of tareas" [ngClass]="{'tachado': tarea.estado}">
+    <input type="checkbox" [(ngModel)]="tarea.estado">
+    {{tarea.nombre}} - {{tarea.fecha | date}}
+    <button
+    class="btn btn-warning m-2"
+    (click)="actualizarTarea(tarea.id, tarea)"
+    >Actualizar
+  </button>
+    <button
+      class="btn btn-danger m-2"
+      (click)="borrarTarea(tarea.id)"
+      >Borrar
+    </button>
+  </li>
 </ul>

@@ -20,6 +20,7 @@ import { PipePruebaPipe } from './pipe-prueba.pipe';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,7 @@ import { PipePruebaPipe } from './pipe-prueba.pipe';
     CharactersCardComponent,
     CharactersListComponent,
     PipesComponent,
-    PipePruebaPipe,
+    PipePruebaPipe
   ],
   imports: [
     BrowserModule,
